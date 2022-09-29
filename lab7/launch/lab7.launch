@@ -1,0 +1,9 @@
+																																																																																																																																																																																																																																																																																																																																																																																																																		<launch>
+	<node name="get_intrinsic_parameter" pkg="lab7" type="camera_calibration.py" output="screen" />
+	<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lab7)/rviz_config_1.rviz" />
+	<arg name="bag_file_name" value="PA7"/>
+
+  	<node type="play" name="player" pkg= "rosbag" output="screen" args="--clock $(find lab7)/data/PA7.bag"/>
+	<node name="depth_from_stereo" pkg="lab7" type="depth_from_stereo.py" output="screen" />
+	<param name = 'frame_number' value='9'  />
+</launch>
